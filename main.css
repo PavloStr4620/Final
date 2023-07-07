@@ -1,0 +1,259 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    background-color: #fff;
+    min-width: 320px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    padding: 50px 0;
+}
+
+a {
+    color: #111;
+}
+
+a:hover {
+    color: #555;
+}
+
+
+
+.navbar-light .navbar-nav .nav-link {
+    color: #111;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.navbar-nav .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.modal-body img {
+    max-width: 150px;
+}
+
+.product-card {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
+    transition: all .3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
+}
+
+.product-thumb {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    height: 200px;
+    padding: 20px;
+}
+
+.product-thumb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-details {
+    padding: 20px;
+}
+
+.product-details h4 a {
+    font-weight: 500;
+    display: block;
+    height: 60px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.product-details p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #999;
+    height: 44px;
+    overflow: hidden;
+}
+
+.product-bottom-details {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.product-price small {
+    color: #ccc;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-right: 5px;
+}
+
+.product-links a {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.footer {
+    background-color: #343434;
+}
+
+.footer h4 {
+    color: #ccc;
+    text-transform: uppercase;
+    font-size: 16px;
+    border-bottom: 1px solid #666;
+    padding-bottom: 3px;
+}
+
+.footer a {
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.footer a,
+.footer li {
+    display: block;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer a,
+.footer li {
+    color: #c8c8c8;
+}
+
+.footer-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.dropdown-menu li {
+    padding-left: 5px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.modal-body .form-label {
+    padding-top: 10px;
+}
+
+/* кнопка */
+.nav-item .btn {
+    visibility: visible;
+    color: #999090;
+}
+
+.nav-item .btn:hover {
+    color: #fcf7f7;
+}
+
+/* Корзина + обновлення*/
+
+
+/* Кнопки пагінації */
+#paginationContainer {
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#previousButton-pagination {
+    margin-left: 5px;
+}
+
+#nextButton-pagination {
+    margin-left: 5px;
+}
+
+/* Кнопки пагінації */
+
+#create-card-id {
+    visibility: hidden;
+}
+
+
+.main-product-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    margin: 20px 20px 0 0;
+}
+
+#delete-product {
+    border: 0px;
+    background-color: #fff;
+    visibility: hidden;
+}
+
+#delete-product:hover {
+    background-color: silver;
+}
+
+#edit-button {
+    border: 0px;
+    background-color: #fff;
+    visibility: hidden;
+}
+
+#edit-button:hover {
+    background-color: silver;
+}
+
+
+/* пагінація */
+#pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  #pagination-container a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
+  }

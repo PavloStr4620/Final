@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Курсова</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/8bd5adab0e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="pagination.css">
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Фото-shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" id="create-card-id"
+            data-bs-target="#create-card">Створити картку</button>
+          </li>
+
+          <!-- ВІкно для добавляння картки -->
+          <div class="modal fade" id="create-card" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Створити картку</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                  <p for="exampleDropdownFormPassword1" class="form-label">Назва</p>
+                  <input type="text" class="form-control" id="name-card" placeholder="Назва">
+                  <label for="exampleDropdownFormPassword1" class="form-label">Модель</label>
+                  <input type="text" class="form-control" id="model-card" placeholder="Модель">
+                  <label for="exampleDropdownFormPassword1" class="form-label">Кількість мегапікселів</label>
+                  <input type="text" class="form-control" id="megapixels-card" placeholder="Кількість мегапікселів">
+                  <label for="exampleDropdownFormPassword1" class="form-label">Оптичний зум</label>
+                  <input type="text" class="form-control" id="zoom-card" placeholder="Оптичний зум">
+                  <label for="exampleDropdownFormPassword1" class="form-label">Серійна зйомка, кадрів/с</label>
+                  <input type="text" class="form-control" id="fps-card" placeholder="Серійна зйомка, кадрів/с">
+                  <label for="exampleDropdownFormPassword1" class="form-label">Ціна</label>
+                  <input type="text" class="form-control" id="sum-card" placeholder="Ціна">
+                  <label for="exampleDropdownFormPassword1" class="form-label">Картинка</label>
+                  <input type="file" class="form-control" id="img-card" placeholder="Зображення">
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+                  <button type="button" class="btn btn-primary" onclick="addProductCard()">Добавити </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
+
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"><i
+                class="fa-regular fa-user"></i></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" id="sing-in-text" data-bs-toggle="modal" data-bs-target="#sing-in"
+                  href="#">Вхід</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#register-user" href="#">Регестрація</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modal-cart"><i
+                class="fa-solid fa-cart-shopping"></i></a>
+            <!-- Корзина -->
+            <div class="modal fade" id="modal-cart" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header bg-secondary text-white">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Корзина</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Назва</th>
+                          <th scope="col">Ціна</th>
+                          <th scope="col">Кількість</th>
+                        </tr>
+                      </thead>
+                      <tbody id="card-modal">
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <!-- Корзина -->
+
+            <form class="d-flex" role="search" method="GET" class="form-filter" onsubmit="searchProducts(event)">
+              <!-- <div class="search-btn d-grid gap-2"> -->
+              <input class="form-control me-2" type="search" id="search-for-card" placeholder="Пошук моделі">
+              <button class="btn btn-dark seacrh-button-card" type="submit">Пошук</button>
+            </form>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Редагування даних -->
+  <div class="modal fade" id="edit-card" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Редагувати картку</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <p for="exampleDropdownFormPassword1" class="form-label">Назва</p>
+          <input type="text" class="form-control" id="name-card-edit" placeholder="Назва">
+          <label for="exampleDropdownFormPassword1" class="form-label">Модель</label>
+          <input type="text" class="form-control" id="model-card-edit" placeholder="Модель">
+          <label for="exampleDropdownFormPassword1" class="form-label">Кількість мегапікселів</label>
+          <input type="text" class="form-control" id="megapixels-card-edit" placeholder="Кількість мегапікселів">
+          <label for="exampleDropdownFormPassword1" class="form-label">Оптичний зум</label>
+          <input type="text" class="form-control" id="zoom-card-edit" placeholder="Оптичний зум">
+          <label for="exampleDropdownFormPassword1" class="form-label">Серійна зйомка, кадрів/с</label>
+          <input type="text" class="form-control" id="fps-card-edit" placeholder="Серійна зйомка, кадрів/с">
+          <label for="exampleDropdownFormPassword1" class="form-label">Ціна</label>
+          <input type="text" class="form-control" id="sum-card-edit" placeholder="Ціна">
+          <label for="exampleDropdownFormPassword1" class="form-label">Картинка</label>
+          <input type="file" class="form-control" id="img-card-edit" placeholder="Зображення">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary" id="updateInfo" onclick="editcCardModalButton(id)">Добавити
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- main content -->
+  <section class="main-content">
+    <div class="container">
+      <div class="row" id="productContainer">
+        <div class="main-product-container">
+
+          <!-- Вміст товарів тут -->
+
+        </div>
+        <div id="pagination-container">
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <section class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-6">
+            <h4>Інформація</h4>
+            <ul class="list-unstyled">
+              <li><a href="#">Головна</a></li>
+              <li><a href="#">Про магазин</a></li>
+              <li><a href="#">Оплата і доставка</a></li>
+              <li><a href="#">Контакти</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <h4>Час роботи</h4>
+            <ul class="list-unstyled">
+              <li><a href="#">м.Тернопіль, вул. Квітня, 15</a></li>
+              <li><a href="#">пн-пт: 09:00-17:00</a></li>
+              <li><a href="#">без переривів</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <h4>Час</h4>
+            <ul class="list-unstyled">
+              <li><a href="tel:5551234567">555 123 45 67</a></li>
+              <li><a href="tel:5551234568">555 123 45 68</a></li>
+              <li><a href="tel:5551234569">555 123 45 69</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <h4>Соціальні мережі</h4>
+            <ul class="list-unstyled">
+              <div class="footer-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+
+  <!-- Вхід -->
+  <div class="modal fade" id="sing-in" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Вхід</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="px-4 py-3">
+            <div class="mb-3">
+              <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+            </div>
+            <div class="mb-3">
+              <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary" id="button-sing-in">Sign in</button>
+            <!-- <button type="submit" class="btn btn-primary" id="button-sing-in" >Sign in</button> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Регестрація -->
+  <div class="modal fade" id="register-user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Регестрація</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="post" id="register-form" class="px-4 py-3">
+            <div class="mb-3">
+              <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+            </div>
+            <div class="mb-3">
+              <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary" id="button-register">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="sing-in.js"></script>
+    <script src="register-user.js"></script>
+    <script src="addModal.js"></script>
+    <script src="LocalStorage.js"></script>
+    <script src="card.js"></script>
+    <script src="deleteProduct.js"></script>
+    <script src="editProduct.js"></script>
+</body>
+
+</html>
